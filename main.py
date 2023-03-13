@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup as BS
 import re
 
+#正则处理table表格
 def checkhtml(table_html):
     print(len(table_html))
     # 从页面内容中提取表格内容
@@ -23,6 +24,7 @@ def checkhtml(table_html):
             print('| ' + ' | '.join(row_text) + ' |')  # 打印去掉HTML标签后的表格
     return 0
 
+#拆分html
 def htmltext(text):
     soup = BS(text, 'html.parser')
     table_html = str(soup.find("table", id="DataGrid2"))
